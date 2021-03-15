@@ -1,0 +1,21 @@
+title exercise 0-4
+
+note over browser:
+User types something into 
+the text field and clicks Save
+end note
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+server-->browser: Status Code 302
+note over browser:
+Browser reloads the web page
+end note
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: CSS code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: JS code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: JSON data
+browser->server: HTTP GET https://studies.cs.helsinki.fi/favicon.ico
+server-->browser: icon

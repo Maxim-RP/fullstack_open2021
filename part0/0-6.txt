@@ -1,0 +1,8 @@
+title exercise 0-6
+
+note over browser:
+User types something into 
+the text field and clicks Save
+end note
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+server-->browser: Status Code 201 Created
