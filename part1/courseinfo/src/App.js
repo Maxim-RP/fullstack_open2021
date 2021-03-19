@@ -6,7 +6,7 @@ const Header = (props) => (
 
 const Content = (props) => (
   <div>
-    {props.parts.map((item)=> <Part name={item.name} ex={item.exercises} />)}
+    {props.parts.map((item, index)=> <Part key={index} name={item.name} ex={item.exercises} />)}
   </div>
 )
 
