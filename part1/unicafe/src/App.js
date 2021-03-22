@@ -17,7 +17,7 @@ const App = () => {
       good: points.good + 1,
       all: points.all + 1,
       average: points.average + 1,
-      positive: points.good/points.all*100
+      positive: (points.good+1)/(points.all+1)*100
     })
     }
 
@@ -26,7 +26,7 @@ const App = () => {
       ...points,
       neutral: points.neutral + 1,
       all: points.all + 1,
-      positive: points.good/points.all*100
+      positive: points.good/(points.all+1)*100
     })
     }
 
@@ -36,7 +36,7 @@ const App = () => {
       bad: points.bad + 1,
       all: points.all + 1,
       average: points.average - 1,
-      positive: points.good/points.all*100
+      positive: points.good/(points.all+1)*100
     })
     }
 
