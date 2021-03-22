@@ -1,5 +1,27 @@
 import React, { useState } from 'react'
 
+const Statistics = ({ points }) => {
+  if (points.all !== 0) {
+    return (
+      <div>
+        <h2>Statistics</h2>
+        <div>good {points.good}</div>
+        <div>neutral {points.neutral}</div>
+        <div>bad {points.bad}</div>
+        <div>all {points.all}</div>
+        <div>average {points.average}</div>
+        <div>positive {points.positive}</div>
+      </div>
+    )
+  }
+  return (
+    <div>
+      <h2>Statistics</h2>
+      <div>No feedback given</div>
+    </div>
+  )
+}
+
 const App = () => {
 
   const [points, setPoints] = useState({
@@ -17,18 +39,18 @@ const App = () => {
       good: points.good + 1,
       all: points.all + 1,
       average: points.average + 1,
-      positive: (points.good+1)/(points.all+1)*100
+      positive: (points.good + 1) / (points.all + 1) * 100
     })
-    }
+  }
 
   const neutralHandler = () => {
     setPoints({
       ...points,
       neutral: points.neutral + 1,
       all: points.all + 1,
-      positive: points.good/(points.all+1)*100
+      positive: points.good / (points.all + 1) * 100
     })
-    }
+  }
 
   const badHandler = () => {
     setPoints({
@@ -36,9 +58,9 @@ const App = () => {
       bad: points.bad + 1,
       all: points.all + 1,
       average: points.average - 1,
-      positive: points.good/(points.all+1)*100
+      positive: points.good / (points.all + 1) * 100
     })
-    }
+  }
 
   return (
     <div>
@@ -46,13 +68,7 @@ const App = () => {
       <button onClick={goodHandler}>good</button>
       <button onClick={neutralHandler}>neutral</button>
       <button onClick={badHandler}>bad</button>
-      <h2>Statistics</h2>
-      <div>good {points.good}</div>
-      <div>neutral {points.neutral}</div>
-      <div>bad {points.bad}</div>
-      <div>all {points.all}</div>
-      <div>average {points.average}</div>
-      <div>positive {points.positive}</div>
+      <Statistics points={points} />
     </div>
   )
 }
