@@ -11,7 +11,7 @@ const App = () => {
 
     return (
     <div>
-      {persons.map((person)=><p>{person.name}</p>)}
+      {persons.map((person)=><p key={person.name}>{person.name}</p>)}
     </div>)
   }
 
@@ -20,7 +20,6 @@ const App = () => {
     const newObjectName = {name: newName}
     setPersons(persons.concat(newObjectName))
     setNewName('')
-    console.log(persons)
   }
 
   const handlePersonChange = (event) => {
@@ -30,11 +29,13 @@ const App = () => {
   return (
     <div>
       <h1>Phonebook</h1>
-      <Numbers />
       <form onSubmit={addPerson}>
+        <label>Name:</label>
         <input value={newName} onChange={handlePersonChange}/>
-        <button type='submit'>submit</button>
+        <div><button type='submit'>Add</button></div>
       </form>
+      <h2>Numbers</h2>
+      <Numbers />
     </div>
   )
 }
