@@ -1,4 +1,7 @@
 import { React, useState } from 'react'
+import Filter from './components/Filter'
+import PersonForm from './components/PersonForm'
+import Persons from './components/Persons'
 
 const App = () => {
 
@@ -16,7 +19,7 @@ const App = () => {
 
     return (
       <div>
-        {namesToShow.map((person) => <p key={person.name}>{person.name} {person.num}</p>)}
+        {namesToShow.map((person) => <p key={person.name}>{person.name} {person.number}</p>)}
       </div>)
   }
 
@@ -26,7 +29,7 @@ const App = () => {
       alert(`${newName} is already added to phonebook`)
       setNewName('')
     } else {
-      const newObjectName = { name: newName, num: newNumber }
+      const newObjectName = { name: newName, number: newNumber }
       setPersons(persons.concat(newObjectName))
       setNewName('')
       setNewNumber('')
@@ -44,7 +47,7 @@ const App = () => {
   const handleSearchNameChange = (event) => {
     setSearchName(event.target.value)
   }
-  
+
   const namesToShow = searchName === ''
   ? persons
   : persons.filter(person => person.name.toLowerCase().match(searchName.toLowerCase()))
@@ -52,6 +55,9 @@ const App = () => {
   return (
     <div>
       <h1>Phonebook</h1>
+      <Filter />
+      <PersonForm />
+      <Persons />
       <label>Filter shown with:</label>
       <input value={searchName} onChange={handleSearchNameChange}/>
       <h2>Add a new</h2>
