@@ -11,30 +11,8 @@ const App = () => {
     { name: 'Dan Abramov', number: '12-43-234345' },
     { name: 'Mary Poppendieck', number: '39-23-6423122' }
   ])
-  const [newName, setNewName] = useState('')
-  const [newNumber, setNewNumber] = useState('')
+
   const [searchName, setSearchName] = useState('')
-
-  const addPerson = (event) => {
-    event.preventDefault()
-    if (persons.some((item) => item.name === newName)) {
-      alert(`${newName} is already added to phonebook`)
-      setNewName('')
-    } else {
-      const newObjectName = { name: newName, number: newNumber }
-      setPersons(persons.concat(newObjectName))
-      setNewName('')
-      setNewNumber('')
-    }
-  }
-
-  const handlePersonChange = (event) => {
-    setNewName(event.target.value)
-  }
-
-  const handlePersonChangeNum = (event) => {
-    setNewNumber(event.target.value)
-  }
 
   const handleSearchNameChange = (event) => {
     setSearchName(event.target.value)
@@ -46,17 +24,7 @@ const App = () => {
       <label>Filter shown with:</label>
       <input value={searchName} onChange={handleSearchNameChange} />
       <h2>Add a new</h2>
-      <form onSubmit={addPerson}>
-        <div>
-        <label>Name:</label>
-        <input value={newName} onChange={handlePersonChange} />
-        </div>
-        <div>
-        <label>Number:</label>
-        <input value={newNumber} onChange={handlePersonChangeNum} />
-        </div>
-        <button type='submit'>Add</button>
-      </form>
+      <PersonForm persons={persons} setPersons={setPersons}/>
       <h2>Numbers</h2>
       <Persons persons={persons} searchName={searchName} />
     </div>
