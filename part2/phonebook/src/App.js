@@ -14,15 +14,10 @@ const App = () => {
 
   const [searchName, setSearchName] = useState('')
 
-  const handleSearchNameChange = (event) => {
-    setSearchName(event.target.value)
-}
-
   return (
     <div>
       <h1>Phonebook</h1>
-      <label>Filter shown with:</label>
-      <input value={searchName} onChange={handleSearchNameChange} />
+      <Filter searchName={searchName} setSearchName={setSearchName}/>
       <h2>Add a new</h2>
       <PersonForm persons={persons} setPersons={setPersons}/>
       <h2>Numbers</h2>
