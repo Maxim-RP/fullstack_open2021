@@ -1,7 +1,7 @@
 import { React } from 'react'
 import CountryCard from './CountryCard'
 
-const Filter = ({ searchName, setSearchName, countries }) => {
+const FilteredCountries = ({ searchName, setSearchName, countries }) => {
 
     const handleSearchNameChange = (event) => {
         setSearchName(event.target.value)
@@ -36,4 +36,4 @@ const Filter = ({ searchName, setSearchName, countries }) => {
     )
 }
 
-export default Filter
+export default FilteredCountries

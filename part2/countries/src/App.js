@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react'
 import axios from 'axios'
-import Filter from './components/Filter'
+import FilteredCountries from './components/FilteredCountries'
 
 const App = () => {
 
@@ -17,7 +17,7 @@ const App = () => {
 
   return (
     <div>
-      <Filter searchName={searchName} setSearchName={setSearchName} countries={countries}/>
+      <FilteredCountries searchName={searchName} setSearchName={setSearchName} countries={countries}/>
     </div>
   )
 }
